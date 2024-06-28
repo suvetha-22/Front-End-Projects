@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guess the number</title>
+</head>
+<body>
+    <h1>Guess the number</h1>
+    <input type="number" id="box">
+    <button onclick="check()">Check</button>
+    <p id="score">Score: 10</p>
+    <p id="won"></p>
+    
+    <script>
+        var score = 10; // Initialize score
+
+        function check() {
+            var box = Number(document.getElementById("box").value); // Get user's guess
+            var scoreDisplay = document.getElementById("score"); // Score display element
+            var won = document.getElementById("won"); // Result display element
+            var rand = Math.floor(Math.random() * 10) + 1; // Generate random number between 1 and 10
+
+            if (rand === box) {
+                console.log("You are right");
+                scoreDisplay.textContent = "Your score is: " + score;
+                won.textContent = "You are right";
+            } else {
+                console.log("You are wrong");
+                score--; // Decrease score
+                scoreDisplay.textContent = "Your score is: " + score;
+                won.textContent = "You are wrong";
+            }
+        }
+    </script>
+</body>
+</html>
 
